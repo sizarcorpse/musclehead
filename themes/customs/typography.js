@@ -1,4 +1,4 @@
-const FONT_PRIMARY = "Poppins, sans-serif";
+const FONT_PRIMARY = "Roboto, sans-serif";
 
 const pxToRem = (value) => {
   return `${value / 16}rem`;
@@ -20,73 +20,66 @@ const responsiveFontSizes = ({ sm, md, lg }) => {
 
 const typography = {
   fontFamily: FONT_PRIMARY,
-  fontWeightRegular: 400,
-  fontWeightMedium: 600,
-  fontWeightBold: 700,
   h1: {
     fontWeight: 700,
-    lineHeight: 80 / 64,
-    fontSize: pxToRem(40),
-    ...responsiveFontSizes({ sm: 52, md: 58, lg: 64 }),
+    lineHeight: 1,
+    fontSize: pxToRem(72),
+    ...responsiveFontSizes({ sm: 52, md: 58, lg: 72 }),
   },
   h2: {
     fontWeight: 700,
-    lineHeight: 64 / 48,
-    fontSize: pxToRem(32),
-    ...responsiveFontSizes({ sm: 40, md: 44, lg: 48 }),
+    lineHeight: 1,
+    fontSize: pxToRem(64),
+    ...responsiveFontSizes({ sm: 40, md: 44, lg: 64 }),
   },
   h3: {
     fontWeight: 700,
-    lineHeight: 1.5,
-    fontSize: pxToRem(24),
-    ...responsiveFontSizes({ sm: 26, md: 30, lg: 32 }),
+    lineHeight: 1.1,
+    fontSize: pxToRem(48),
+    ...responsiveFontSizes({ sm: 26, md: 30, lg: 48 }),
   },
   h4: {
     fontWeight: 700,
-    lineHeight: 1.5,
-    fontSize: pxToRem(20),
-    ...responsiveFontSizes({ sm: 20, md: 21, lg: 22 }),
+    lineHeight: 1.2,
+    fontSize: pxToRem(36),
+    ...responsiveFontSizes({ sm: 20, md: 21, lg: 36 }),
   },
   h5: {
-    fontWeight: 700,
-    lineHeight: 1.5,
-    fontSize: pxToRem(18),
-    ...responsiveFontSizes({ sm: 19, md: 20, lg: 20 }),
+    fontWeight: 500,
+    lineHeight: 1.3,
+    fontSize: pxToRem(28),
+    ...responsiveFontSizes({ sm: 19, md: 20, lg: 28 }),
   },
   h6: {
     fontWeight: 700,
-    lineHeight: 28 / 18,
-    fontSize: pxToRem(17),
-    ...responsiveFontSizes({ sm: 18, md: 18, lg: 18 }),
+    lineHeight: 1.5,
+    fontSize: pxToRem(24),
+    ...responsiveFontSizes({ sm: 18, md: 18, lg: 24 }),
   },
   subtitle1: {
-    fontWeight: 600,
+    fontWeight: 400,
     lineHeight: 1.5,
-    fontSize: pxToRem(16),
+    fontSize: pxToRem(14),
   },
   subtitle2: {
-    fontWeight: 600,
-    lineHeight: 22 / 14,
-    fontSize: pxToRem(14),
+    fontWeight: 400,
+    lineHeight: 1.5,
+    fontSize: pxToRem(12),
   },
   body1: {
+    fontWeight: 400,
     lineHeight: 1.5,
-    fontSize: pxToRem(16),
+    fontSize: pxToRem(18),
   },
   body2: {
-    lineHeight: 22 / 14,
-    fontSize: pxToRem(14),
-  },
-  caption: {
+    fontWeight: 400,
     lineHeight: 1.5,
-    fontSize: pxToRem(12),
+    fontSize: pxToRem(20),
   },
-  overline: {
-    fontWeight: 700,
+  body3: {
+    fontWeight: 400,
     lineHeight: 1.5,
-    fontSize: pxToRem(12),
-    letterSpacing: 1.1,
-    textTransform: "uppercase",
+    fontSize: pxToRem(24),
   },
   button: {
     fontWeight: 700,

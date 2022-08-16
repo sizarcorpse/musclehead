@@ -3,9 +3,13 @@ export default function Container(theme) {
     MuiContainer: {
       styleOverrides: {
         root: {
-          "&.MuiContainer-maxWidthLg": {
-            maxWidth: 1200,
+          "&.MuiContainer-maxWidthXl": {
+            maxWidth: 1400,
           },
+          "&.MuiContainer-maxWidthLg": {},
+          "&.MuiContainer-maxWidthMd": {},
+          "&.MuiContainer-maxWidthSm": {},
+          "&.MuiContainer-maxWidthXs": {},
         },
       },
     },

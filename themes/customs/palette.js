@@ -1,13 +1,12 @@
 const PRIMARY = {
-  light: "#EDF1F6",
-  darkish: "#344b80",
-  dark: "#2D3663",
-  main: "#0383C7",
-  lightish: "#D6DAE4",
+  light: "#ecf1f4",
+  dark: "#0e1618",
+  main: "#d1ff23",
+  tan: "#f5f2e8",
 };
 
 const palette = {
-  common: { black: "#222222", white: "#fcfcfc" },
+  common: { black: "#000", white: "#fff" },
   primary: { ...PRIMARY },
 };
 
