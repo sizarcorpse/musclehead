@@ -1,3 +1,4 @@
+import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
   Box,
@@ -5,14 +6,15 @@ import {
   styled,
   Toolbar,
   Typography,
+  useMediaQuery,
   useScrollTrigger,
+  useTheme,
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { cloneElement, forwardRef } from "react";
+import { cloneElement, forwardRef, useState } from "react";
 
-import PropTypes from "prop-types";
-
+import { MHDrawer } from "components/layouts";
 import { MBButton } from "components/ui";
 import { mockHeader } from "mocks/";
 
@@ -70,6 +72,22 @@ const NavigationItem = forwardRef(({ items, ...other }, ref) => {
 const MHHeader = (props) => {
   const { children } = props;
   const { navigation } = mockHeader;
+  const [state, setState] = useState({
+    right: false,
+  });
+
+  const matchesMD = useMediaQuery(useTheme().breakpoints.down("md"));
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -94,11 +112,34 @@ const MHHeader = (props) => {
               </Link>
             </Box>
 
-            <NavigationItem items={navigation} />
-
-            <Box>
-              <MBButton>GET STARTED</MBButton>
-            </Box>
+            {matchesMD ? (
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <MenuIcon
+                  disablefocusripple="true"
+                  disableripple="true"
+                  onClick={toggleDrawer("right", true)}
+                  sx={{
+                    color: trigger ? "primary.dark" : "primary.light",
+                    cursor: "pointer",
+                  }}
+                />
+                <MHDrawer
+                  state={state}
+                  toggleDrawer={toggleDrawer}
+                  navigationItems={{
+                    forPatient: navigation.patient,
+                    forPractitioner: navigation.practitioner,
+                  }}
+                />
+              </Box>
+            ) : (
+              <>
+                <NavigationItem items={navigation} />
+                <Box>
+                  <MBButton>GET STARTED</MBButton>
+                </Box>
+              </>
+            )}
           </Toolbar>
         </AppBar>
       </ElevationScroll>
