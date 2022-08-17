@@ -4,7 +4,7 @@ export default function Container(theme) {
       styleOverrides: {
         root: {
           "&.MuiContainer-maxWidthXl": {
-            maxWidth: 1400,
+            maxWidth: 1440,
           },
           "&.MuiContainer-maxWidthLg": {},
           "&.MuiContainer-maxWidthMd": {},

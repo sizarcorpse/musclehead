@@ -1,10 +1,12 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
-import ThemeConfig from "themes/";
 import { CacheProvider } from "@emotion/react";
-import { createEmotionCache } from "utils/";
+import Head from "next/head";
+import PropTypes from "prop-types";
+import * as React from "react";
 import { SWRConfig } from "swr";
+import ThemeConfig from "themes/";
+import { createEmotionCache } from "utils/";
+
+import { MHHeader } from "components/layouts/";
 
 const clientSideEmotionCache = createEmotionCache();
 export default function App(props) {
@@ -21,7 +23,9 @@ export default function App(props) {
             fetcher: (url) => fetch(url).then((r) => r.json()),
           }}
         >
-          <Component {...pageProps} />
+          <MHHeader>
+            <Component {...pageProps} />
+          </MHHeader>
         </SWRConfig>
       </ThemeConfig>
     </CacheProvider>
