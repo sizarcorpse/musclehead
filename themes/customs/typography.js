@@ -6,14 +6,14 @@ const pxToRem = (value) => {
 
 const responsiveFontSizes = ({ sm, md, lg }) => {
   return {
-    "@media (min-width:600px)": {
-      fontSize: pxToRem(sm),
+    "@media (max-width:1280px)": {
+      fontSize: pxToRem(lg),
     },
-    "@media (min-width:900px)": {
+    "@media (max-width:900px)": {
       fontSize: pxToRem(md),
     },
-    "@media (min-width:1200px)": {
-      fontSize: pxToRem(lg),
+    "@media (max-width:600px)": {
+      fontSize: pxToRem(sm),
     },
   };
 };
@@ -30,7 +30,7 @@ const typography = {
     fontWeight: 700,
     lineHeight: 1,
     fontSize: pxToRem(64),
-    ...responsiveFontSizes({ sm: 40, md: 44, lg: 64 }),
+    ...responsiveFontSizes({ sm: 28, md: 36, lg: 48 }),
   },
   h3: {
     fontWeight: 700,
@@ -73,13 +73,15 @@ const typography = {
   },
   body2: {
     fontWeight: 400,
-    lineHeight: 1.5,
+    lineHeight: 1.6,
     fontSize: pxToRem(20),
+    ...responsiveFontSizes({ sm: 17, md: 18, lg: 20 }),
   },
   body3: {
     fontWeight: 400,
-    lineHeight: 1.5,
-    fontSize: pxToRem(24),
+    lineHeight: 1.7,
+    fontSize: pxToRem(22),
+    ...responsiveFontSizes({ sm: 18, md: 20, lg: 22 }),
   },
   button: {
     fontWeight: 700,
