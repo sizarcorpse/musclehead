@@ -65,6 +65,59 @@ const mockHome = {
       },
     ],
   },
+
+  features: {
+    title: "Become A Muscle Head",
+    subtitle: "@joinmusclehead",
+    description:
+      "Real, permanent change results from habitual change, internalized discipline and a genuine understanding how your body functions. Let’s develop your knowledge, practices, uncover the psychology behind your challenges and focus on sustained, incremental growth – so you can become your best, strongest, most athletic self.",
+    featureList: [
+      {
+        title: "Make Your Body Harmonic",
+        url: "/nutrition",
+        icon: {
+          url: "/assets/svg/make-your-body-harmonic.svg",
+          alt: "Nutrition",
+        },
+      },
+      {
+        title: "Optimal Pro Diet Selection",
+        url: "/weightlifting",
+        icon: {
+          url: "/assets/svg/optimal-diet-selection.svg",
+          alt: "Weightlifting",
+        },
+      },
+      {
+        title: "Individual Training Programs",
+        url: "/weightlifting",
+        icon: {
+          url: "/assets/svg/individual-training-programs.svg",
+          alt: "Weightlifting",
+        },
+      },
+      {
+        title: "Group & Personal Training",
+        url: "/weightlifting",
+        icon: {
+          url: "/assets/svg/group-&-personal-training.svg",
+          alt: "Weightlifting",
+        },
+      },
+      {
+        title: "Weight Loss Pro Program",
+        url: "/weightlifting",
+        icon: {
+          url: "/assets/svg/weight-loss-program.svg",
+          alt: "Weightlifting",
+        },
+      },
+    ],
+    callToAction: {
+      text: "Book an appointment",
+      link: "/contact",
+    },
+  },
 };
 
 export default mockHome;
