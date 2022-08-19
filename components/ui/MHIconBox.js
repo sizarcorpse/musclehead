@@ -80,7 +80,7 @@ const Content = forwardRef(
 
 const MBIconBox = (props) => {
   const {
-    items: { title, url, icon },
+    item: { title, url, icon },
     variant,
     position,
     gap,
@@ -108,16 +108,15 @@ MBIconBox.defaultProps = {
 };
 
 MBIconBox.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      url: PropTypes.string,
-      icon: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        alt: PropTypes.string.isRequired,
-      }),
-    })
-  ),
+  item: PropTypes.shape({
+    title: PropTypes.string,
+    url: PropTypes.string,
+    icon: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+    }),
+  }),
+
   variant: PropTypes.oneOf(["column", "row"]),
   position: PropTypes.oneOf(["left", "center", "right", "start", "end"]),
   gap: PropTypes.oneOf(["small", "medium", "large"]),

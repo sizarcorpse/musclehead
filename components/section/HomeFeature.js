@@ -1,5 +1,5 @@
 import { Box, styled, Typography } from "@mui/material";
-import { MBButton, MBTitle, MHIconBox } from "components/ui";
+import { MHButton, MHIconBox, MHTitle } from "components/ui";
 import PropTypes from "prop-types";
 
 const HomeFeatureStyled = styled(Box)(({ theme }) => ({
@@ -40,7 +40,7 @@ const HomeFeature = (props) => {
           maxWidth: "900px",
         }}
       >
-        <MBTitle title={title} subtitle={subtitle} alignment="center" />
+        <MHTitle title={title} subtitle={subtitle} alignment="center" />
         <Typography variant="body2" color="primary.light" textAlign="center">
           {description}
         </Typography>
@@ -48,11 +48,11 @@ const HomeFeature = (props) => {
 
       <FeatureListStyled>
         {featureList.map((feature, index) => (
-          <MHIconBox key={index} items={feature} />
+          <MHIconBox key={index} item={feature} />
         ))}
       </FeatureListStyled>
 
-      <MBButton to={callToAction.url}>{callToAction.text}</MBButton>
+      <MHButton to={callToAction.url}>{callToAction.text}</MHButton>
     </HomeFeatureStyled>
   );
 };
