@@ -2,7 +2,7 @@ import { Box, Container, styled } from "@mui/material";
 import PropTypes from "prop-types";
 import { Children, cloneElement, forwardRef, isValidElement } from "react";
 
-const MHHeroSlideStyled = styled(Box)(({ theme, backgroundImage }) => ({
+const MHHeroSlideStyled = styled(Box)(({ theme, background }) => ({
   display: "flex",
   alignItems: "center",
   height: "864px",
@@ -16,14 +16,14 @@ const MHHeroSlideStyled = styled(Box)(({ theme, backgroundImage }) => ({
     height: "auto",
     minHeight: "100vh",
   },
-  background: `linear-gradient(180deg, rgba(14, 22, 24, 0) 10.14%, #0E1618 100%),url(${backgroundImage})`,
+  background: `linear-gradient(180deg, rgba(14, 22, 24, 0) 10.14%, #0E1618 100%),url(${background})`,
   backgroundPosition: "50% 50%",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
 }));
 
-const ContentStyled = styled(Box)(({ theme }) => ({
-  maxWidth: "600px",
+const ContentStyled = styled(Box)(({ theme, maxwidth }) => ({
+  maxWidth: maxwidth,
   display: "flex",
   flexDirection: "column",
   alignItems: "flex-start",
@@ -33,12 +33,12 @@ const ContentStyled = styled(Box)(({ theme }) => ({
 
 const MHHeroSlide = forwardRef((props, ref) => {
   {
-    const { children, photo, alignment, ...others } = props;
+    const { children, photo, contentWidth, ...others } = props;
 
     return (
-      <MHHeroSlideStyled ref={ref} backgroundImage={photo.url}>
+      <MHHeroSlideStyled ref={ref} background={photo.url}>
         <Container maxWidth="lg">
-          <ContentStyled>
+          <ContentStyled maxwidth={contentWidth}>
             {Children.map(children, (child) => {
               if (isValidElement(child)) {
                 return cloneElement(child, {
@@ -60,6 +60,7 @@ MHHeroSlide.propTypes = {
     url: PropTypes.string.isRequired,
     alt: PropTypes.string,
   }),
+  contentWidth: PropTypes.string,
 };
 
 export default MHHeroSlide;
