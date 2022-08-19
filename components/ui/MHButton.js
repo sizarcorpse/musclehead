@@ -33,7 +33,7 @@ const rootAttributes = {
   },
 };
 
-const MBButtonStyled = styled(Box)(({ theme, size }) => ({
+const MHButtonStyled = styled(Box)(({ theme, size }) => ({
   position: "relative",
   border: "none",
   backgroundColor: "transparent",
@@ -134,11 +134,11 @@ const MBButtonStyled = styled(Box)(({ theme, size }) => ({
   },
 }));
 
-const MBButton = (props) => {
+const MHButton = (props) => {
   const { children, to, iconend, iconstart, size } = props;
 
   return (
-    <MBButtonStyled size={size}>
+    <MHButtonStyled size={size}>
       <Box component="span" className="shadow"></Box>
       <Box component="span" className="edge"></Box>
       <Box className="contentWrapper" component="span">
@@ -150,16 +150,16 @@ const MBButton = (props) => {
           </Box>
         </Link>
       </Box>
-    </MBButtonStyled>
+    </MHButtonStyled>
   );
 };
 
-MBButton.defaultProps = {
+MHButton.defaultProps = {
   to: "/",
   size: "regular",
 };
 
-MBButton.propTypes = {
+MHButton.propTypes = {
   children: PropTypes.node.isRequired,
   to: PropTypes.string,
   iconend: PropTypes.node,
@@ -167,4 +167,4 @@ MBButton.propTypes = {
   size: PropTypes.oneOf(["regular", "medium", "small"]),
 };
 
-export default MBButton;
+export default MHButton;

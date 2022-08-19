@@ -1,5 +1,5 @@
 import { Box, styled, Typography } from "@mui/material";
-import { MBButton, MBTitle, MHHeroSlide } from "components/ui";
+import { MHButton, MHHeroSlide, MHTitle } from "components/ui";
 import isEmpty from "lodash/isEmpty";
 import PropTypes from "prop-types";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -41,7 +41,7 @@ const MHHeroSlider = (props) => {
         {items.map((slide, index) => (
           <SwiperSlide key={index}>
             <MHHeroSlide photo={slide.photo} contentWidth={contentWidth}>
-              <MBTitle title={slide.title} subtitle={slide.subtitle} />
+              <MHTitle title={slide.title} subtitle={slide.subtitle} />
               {slide.description && (
                 <Typography variant="body1" color="primary.tan">
                   {slide.description}
@@ -50,7 +50,7 @@ const MHHeroSlider = (props) => {
               {isEmpty(slide.buttons)
                 ? null
                 : slide.buttons.map((button, index) => (
-                    <MBButton key={index}>{button.text}</MBButton>
+                    <MHButton key={index}>{button.text}</MHButton>
                   ))}
             </MHHeroSlide>
           </SwiperSlide>

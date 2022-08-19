@@ -15,7 +15,7 @@ import Link from "next/link";
 import { cloneElement, forwardRef, useState } from "react";
 
 import { MHDrawer } from "components/layouts";
-import { MBButton } from "components/ui";
+import { MHButton } from "components/ui";
 import { mockHeader } from "mocks/";
 
 const ElevationScroll = (props) => {
@@ -136,7 +136,7 @@ const MHHeader = (props) => {
               <>
                 <NavigationItem items={navigation} />
                 <Box>
-                  <MBButton>GET STARTED</MBButton>
+                  <MHButton>GET STARTED</MHButton>
                 </Box>
               </>
             )}

@@ -26,7 +26,7 @@ const titleAttribute = {
   },
 };
 
-const MBTitleStyled = styled(Box)(({ theme, alignment }) => ({
+const MHTitleStyled = styled(Box)(({ theme, alignment }) => ({
   textAlign: rootAttributes.alignments[alignment].textAlign,
 }));
 
@@ -53,11 +53,11 @@ const Title = ({ value, variant, component }) => {
   );
 };
 
-const MBTitle = (props) => {
+const MHTitle = (props) => {
   const { subtitle, title, variant, alignment, component } = props;
 
   return (
-    <MBTitleStyled alignment={alignment}>
+    <MHTitleStyled alignment={alignment}>
       {subtitle && <Subtitle value={subtitle} />}
       {title && (
         <Title
@@ -66,17 +66,17 @@ const MBTitle = (props) => {
           component={component}
         />
       )}
-    </MBTitleStyled>
+    </MHTitleStyled>
   );
 };
 
-MBTitle.defaultProps = {
+MHTitle.defaultProps = {
   variant: "regular",
   alignment: "left",
   component: "h2",
 };
 
-MBTitle.propTypes = {
+MHTitle.propTypes = {
   subtitle: PropTypes.string,
   title: PropTypes.string,
   variant: PropTypes.oneOf(["regular", "small"]),
@@ -84,4 +84,4 @@ MBTitle.propTypes = {
   component: PropTypes.string,
 };
 
-export default MBTitle;
+export default MHTitle;
