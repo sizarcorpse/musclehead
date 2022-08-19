@@ -8,6 +8,10 @@ import { createEmotionCache } from "utils/";
 
 import { MHHeader } from "components/layouts/";
 
+import "swiper/scss";
+import "swiper/scss/effect-fade";
+import "swiper/scss/pagination";
+
 const clientSideEmotionCache = createEmotionCache();
 export default function App(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
