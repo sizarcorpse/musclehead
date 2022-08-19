@@ -45,22 +45,26 @@ const Subtitle = ({ value }) => {
   );
 };
 
-const Title = ({ value, variant }) => {
+const Title = ({ value, variant, component }) => {
   return (
-    <Typography variant={variant} component="h1" color="primary.tan">
+    <Typography variant={variant} component={component} color="primary.tan">
       {value}
     </Typography>
   );
 };
 
 const MBTitle = (props) => {
-  const { subtitle, title, variant, alignment } = props;
+  const { subtitle, title, variant, alignment, component } = props;
 
   return (
     <MBTitleStyled alignment={alignment}>
       {subtitle && <Subtitle value={subtitle} />}
       {title && (
-        <Title value={title} variant={titleAttribute.variants[variant].value} />
+        <Title
+          value={title}
+          variant={titleAttribute.variants[variant].value}
+          component={component}
+        />
       )}
     </MBTitleStyled>
   );
@@ -69,6 +73,7 @@ const MBTitle = (props) => {
 MBTitle.defaultProps = {
   variant: "regular",
   alignment: "left",
+  component: "h2",
 };
 
 MBTitle.propTypes = {
@@ -76,6 +81,7 @@ MBTitle.propTypes = {
   title: PropTypes.string,
   variant: PropTypes.oneOf(["regular", "small"]),
   alignment: PropTypes.oneOf(["left", "center", "right"]),
+  component: PropTypes.string,
 };
 
 export default MBTitle;
