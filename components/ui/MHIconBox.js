@@ -23,7 +23,7 @@ const contentAttributes = {
     large: 2,
   },
   maxWidth: (variant) => {
-    return variant === "column" ? "220px" : "100%";
+    return variant === "column" ? "200px" : "100%";
   },
   textAlign: (variant) => {
     return variant === "column" ? "center" : "left";
@@ -32,14 +32,20 @@ const contentAttributes = {
 
 const MBIconBoxStyled = styled(Box)(({ theme, variant }) => ({
   position: "relative",
-  padding: theme.spacing(1),
+  padding: theme.spacing(2),
   cursor: "pointer",
-  width: "max-content",
+  width: "fit-content",
+  borderRadius: theme.spacing(1),
   maxWidth: contentAttributes.maxWidth(variant),
 
   "& p": {
     textAlign: contentAttributes.textAlign(variant),
-    fontWeight: 500,
+    fontWeight: 400,
+    color: theme.palette.primary.tan,
+    transition: "all 500ms ease",
+  },
+  "&:hover p": {
+    color: theme.palette.primary.main,
   },
 }));
 
@@ -56,18 +62,29 @@ const Content = forwardRef(
     return (
       <ContentStyled variant={variant} position={position} gap={gap} {...other}>
         <Box>
-          <Image src={icon} width={81} height={81} quality={100} />
+          {icon && (
+            <Image
+              src={icon.url}
+              width={99}
+              height={81}
+              quality={100}
+              alt={icon.alt}
+            />
+          )}
         </Box>
-        <Typography variant="body2" color="primary.tan">
-          {title}
-        </Typography>
+        <Typography variant="body1">{title}</Typography>
       </ContentStyled>
     );
   }
 );
 
 const MBIconBox = (props) => {
-  const { icon, title, variant, position, gap } = props;
+  const {
+    items: { title, url, icon },
+    variant,
+    position,
+    gap,
+  } = props;
 
   return (
     <MBIconBoxStyled variant={variant}>
@@ -91,8 +108,16 @@ MBIconBox.defaultProps = {
 };
 
 MBIconBox.propTypes = {
-  icon: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      url: PropTypes.string,
+      icon: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
+      }),
+    })
+  ),
   variant: PropTypes.oneOf(["column", "row"]),
   position: PropTypes.oneOf(["left", "center", "right", "start", "end"]),
   gap: PropTypes.oneOf(["small", "medium", "large"]),
