@@ -118,6 +118,35 @@ const mockHome = {
       link: "/contact",
     },
   },
+  aboutMe: {
+    photo: {
+      url: "/assets/jpg/about-me.jpg",
+      alt: "About Me",
+    },
+    title: "Read My Story",
+    subtitle: "A few words about me",
+    description:
+      "Strategy, psychology and philosophy drive. Alec’s approach to optimum health. His training methods and techniques are continually optimised from new learnings and research. Never one to sit still, Alec is dedicated to continually learning and active lifestyle – a lover of surfing, jiu jitsu, hiking and reading.",
+    callToAction: {
+      text: "Learn more about me",
+      link: "/about",
+    },
+  },
+  downloadApp: {
+    title: "Get The App Today",
+    subtitle: "Muscle Head Coaching App",
+    description:
+      "Online coaching service, specialising in building strength and athleticism.",
+    image: {
+      url: "/assets/png/app-mock.png",
+      alt: "Download App",
+    },
+    button: {
+      os: "ios",
+      url: "#",
+      text: "Download on the Apple Store",
+    },
+  },
 };
 
 export default mockHome;
