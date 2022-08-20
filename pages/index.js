@@ -1,10 +1,15 @@
 import { Container, Grid, styled } from "@mui/material";
-import { HomeAboutMe, HomeFeature, HomeHero } from "components/section";
+import {
+  HomeAboutMe,
+  HomeDownloadApp,
+  HomeFeature,
+  HomeHero,
+} from "components/section";
 import { mockHome } from "mocks/";
 import Head from "next/head";
 const Home = (props) => {
   const {} = props;
-  const { hero, features, aboutMe } = mockHome;
+  const { hero, features, aboutMe, downloadApp } = mockHome;
   return (
     <Grid>
       <Head>
@@ -22,6 +27,11 @@ const Home = (props) => {
       </Grid>
       <Grid item>
         <HomeAboutMe {...aboutMe} />
+      </Grid>
+      <Grid item>
+        <Container maxWidth="lg">
+          <HomeDownloadApp {...downloadApp} />
+        </Container>
       </Grid>
     </Grid>
   );
