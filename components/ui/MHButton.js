@@ -33,7 +33,7 @@ const rootAttributes = {
   },
 };
 
-const MHButtonStyled = styled(Box)(({ theme, size }) => ({
+const MHButtonStyled = styled(Box)(({ theme, size, iconsize }) => ({
   position: "relative",
   border: "none",
   backgroundColor: "transparent",
@@ -127,21 +127,21 @@ const MHButtonStyled = styled(Box)(({ theme, size }) => ({
       },
 
       "& svg": {
-        width: rootAttributes.size[size].fontSize,
-        height: rootAttributes.size[size].fontSize,
+        width: iconsize || rootAttributes.size[size].fontSize,
+        height: iconsize || rootAttributes.size[size].fontSize,
       },
     },
   },
 }));
 
 const MHButton = (props) => {
-  const { children, to, iconend, iconstart, size } = props;
+  const { children, to, iconend, iconstart, size, iconSize, maxWidth } = props;
 
   return (
-    <MHButtonStyled size={size}>
+    <MHButtonStyled size={size} iconsize={iconSize}>
       <Box component="span" className="shadow"></Box>
       <Box component="span" className="edge"></Box>
-      <Box className="contentWrapper" component="span">
+      <Box className="contentWrapper" component="span" maxWidth={maxWidth}>
         <Link href={to}>
           <Box component="span" className="content">
             {iconstart && cloneElement(iconstart, { ...props })}
@@ -164,6 +164,8 @@ MHButton.propTypes = {
   to: PropTypes.string,
   iconend: PropTypes.node,
   iconstart: PropTypes.node,
+  iconSize: PropTypes.string,
+  maxWidth: PropTypes.string,
   size: PropTypes.oneOf(["regular", "medium", "small"]),
 };
 
