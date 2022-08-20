@@ -29,11 +29,11 @@ export default function Container(theme) {
           "&.MuiContainer-maxWidthLg": {
             maxWidth: 1280,
             ...responsiveContainer({
-              sm: { py: 4, px: 4 },
-              md: { py: 4, px: 4 },
-              lg: { py: 6, px: 4 },
+              sm: { py: 6, px: 4 },
+              md: { py: 6, px: 4 },
+              lg: { py: 8, px: 4 },
               xl: { py: 8, px: 4 },
-              xxl: { py: 10, px: 10 },
+              xxl: { py: 10, px: 4 },
             }),
           },
           "&.MuiContainer-maxWidthMd": {
